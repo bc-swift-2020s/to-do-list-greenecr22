@@ -27,7 +27,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="fbb-8g-aqa" kind="show" id="ijA-xo-aon"/>
+                                            <segue destination="fbb-8g-aqa" kind="show" identifier="ShowDetail" id="ijA-xo-aon"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -76,7 +76,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HFf-kc-LRI">
-                                                    <rect key="frame" x="19" y="5" width="374" height="34"/>
+                                                    <rect key="frame" x="20" y="5" width="374" height="34"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -139,7 +139,11 @@
                                 <action selector="cancelButtonPressed:" destination="fbb-8g-aqa" id="rdI-Pq-Xx1"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="vvZ-ly-GQ3"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="vvZ-ly-GQ3">
+                            <connections>
+                                <segue destination="p1R-sl-d2Q" kind="unwind" unwindAction="unwindFromDetailWithSegue:" id="nac-QB-nMh"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="datePicker" destination="4Pk-zI-Dkc" id="8Pg-Cz-mem"/>
@@ -149,6 +153,7 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hrt-QT-X77" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="p1R-sl-d2Q" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2936.2318840579715" y="102.45535714285714"/>
         </scene>
