@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UserNotifications
 
 class ToDoItems {
     var itemsArray: [ToDoItem] = []
@@ -21,6 +22,7 @@ class ToDoItems {
         } catch {
             print("ERROR: Could not save data, \(error.localizedDescription)")
         }
+        setNotifications()
     }
     
     func loadData(completed: @escaping ()->() ) {
@@ -36,4 +38,18 @@ class ToDoItems {
         }
         completed()
     }
+    
+    func setNotifications() {
+         guard itemsArray.count > 0 else {
+             return
+         }
+         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+         
+         for index in 0..<itemsArray.count {
+             if itemsArray[index].reminderSet {
+                 let toDoItem = itemsArray[index]
+                itemsArray[index].notificationID = LocalNotificationManager.setCalendarNotification(title: toDoItem.name, subtitle: "", body: toDoItem.notes, badgeNumber: nil, sound: .default, date: toDoItem.date)
+             }
+         }
+     }
 }
