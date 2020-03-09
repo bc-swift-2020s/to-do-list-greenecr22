@@ -6,23 +6,46 @@
 //  Copyright © 2020 Christopher Greene. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import UserNotifications
 
 struct LocalNotificationManager {
-    static func authorizeLocalNotifications() {
-           UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
-               guard error == nil else {
-                   print("ERROR: \(error!.localizedDescription)")
-                   return
-               }
-               if granted {
-                   print("Notifications authorization granted.")
-               } else {
-                   print("User has denied notifications.")
-               }
-           }
-       }
+    static func authorizeLocalNotifications(viewController: UIViewController) {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
+            guard error == nil else {
+                print("ERROR: \(error!.localizedDescription)")
+                return
+            }
+            if granted {
+                print("Notifications authorization granted.")
+            } else {
+                print("User has denied notifications.")
+                DispatchQueue.main.async {
+                    viewController.oneButtonAlert(title: "User Has Not Allowed Notifications", message: "To receive notifications, enable notifications within settings.")
+                }
+            }
+        }
+    }
+    
+    static func isAuthorized(completed: @escaping (Bool)->() ) {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
+            guard error == nil else {
+                print("ERROR: \(error!.localizedDescription)")
+                completed(false)
+                return
+            }
+            if granted {
+                print("Notifications authorization granted.")
+                completed(true)
+
+            } else {
+                print("User has denied notifications.")
+                completed(false)
+
+                
+            }
+        }
+    }
     
     static func setCalendarNotification(title: String, subtitle: String, body: String, badgeNumber: NSNumber?, sound: UNNotificationSound?, date: Date) -> String {
         let content = UNMutableNotificationContent()

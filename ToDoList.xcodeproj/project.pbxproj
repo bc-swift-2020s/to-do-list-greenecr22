@@ -18,6 +18,7 @@
 		EA3805C0240DCC5B0035EA19 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3805BF240DCC5B0035EA19 /* ListTableViewCell.swift */; };
 		EA3805C22416A4B70035EA19 /* ToDoItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3805C12416A4B70035EA19 /* ToDoItems.swift */; };
 		EA3805C42416BFD50035EA19 /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3805C32416BFD50035EA19 /* LocalNotificationManager.swift */; };
+		EACF3C592416CE8400C5091D /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACF3C582416CE8400C5091D /* UIViewController+Alert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		EA3805BF240DCC5B0035EA19 /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		EA3805C12416A4B70035EA19 /* ToDoItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItems.swift; sourceTree = "<group>"; };
 		EA3805C32416BFD50035EA19 /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
+		EACF3C582416CE8400C5091D /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				EA0C019D23F0FFB000C596D5 /* AppDelegate.swift */,
 				EA0C019F23F0FFB000C596D5 /* SceneDelegate.swift */,
 				EA3805C32416BFD50035EA19 /* LocalNotificationManager.swift */,
+				EACF3C582416CE8400C5091D /* UIViewController+Alert.swift */,
 				EA0C01B323F25EC500C596D5 /* ToDoItem.swift */,
 				EA3805C12416A4B70035EA19 /* ToDoItems.swift */,
 				EA0C01A123F0FFB000C596D5 /* ToDoListViewController.swift */,
@@ -153,6 +156,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EACF3C592416CE8400C5091D /* UIViewController+Alert.swift in Sources */,
 				EA0C01A223F0FFB000C596D5 /* ToDoListViewController.swift in Sources */,
 				EA3805C22416A4B70035EA19 /* ToDoItems.swift in Sources */,
 				EA0C019E23F0FFB000C596D5 /* AppDelegate.swift in Sources */,
